@@ -1,6 +1,6 @@
 {
   "name": "generator-react-pkg",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "yeoman generator for publishable React components",
   "main": "index.js",
   "scripts": {
@@ -19,9 +19,6 @@
     "javascript",
     "scaffold",
     "generator"
-  ],
-  "files": [
-    "app"
   ],
   "license": "GPL-3.0",
   "bugs": {
