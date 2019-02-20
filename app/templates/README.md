@@ -1,6 +1,6 @@
 # <%= packageName %>
 
-### <%= packageDescription %>
+##### <%= packageDescription %>
 
 # Installation
 

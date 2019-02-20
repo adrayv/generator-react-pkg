@@ -73,6 +73,8 @@ module.exports = class extends Generator {
 			gitRepoName,
 		} = answers
 
+		const devServerPort = Number(answers.devServerPort)
+
 		// create destination folder
 		this.destinationRoot(packageName);
 
@@ -97,6 +99,56 @@ module.exports = class extends Generator {
 				{ packageName, packageDescription, packageAuthor }
 			)
 		}
+
+		// .npmignore
+		this.fs.copyTpl(
+			this.templatePath('.npmignore'),
+			this.destinationPath('.npmignore')
+		)
+
+		// .gitignore
+		this.fs.copyTpl(
+			this.templatePath('.gitignore'),
+			this.destinationPath('.gitignore')
+		)
+
+		// .babelrc
+		this.fs.copyTpl(
+			this.templatePath('.babelrc'),
+			this.destinationPath('.babelrc')
+		)
+
+		// webpack.config
+		this.fs.copyTpl(
+			this.templatePath('webpack.config.js'),
+			this.destinationPath('webpack.config.js'),
+			{devServerPort}
+		)
+
+		// README.md
+		this.fs.copyTpl(
+			this.templatePath('README.md'),
+			this.destinationPath('README.md'),
+			{ packageName, packageDescription }
+		)
+
+		// src/index.js
+		this.fs.copyTpl(
+			this.templatePath('src/index.js'),
+			this.destinationPath('src/index.js'),
+			{ packageName }
+		)
+
+		// examples
+		this.fs.copyTpl(
+			this.templatePath('examples/src/index.html'),
+			this.destinationPath('examples/src/index.html'),
+			{ packageName }
+		)
+		this.fs.copyTpl(
+			this.templatePath('examples/src/index.js'),
+			this.destinationPath('examples/src/index.js'),
+		)
 	});
   }
 };
