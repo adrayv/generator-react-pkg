@@ -102,19 +102,19 @@ module.exports = class extends Generator {
 
 		// .npmignore
 		this.fs.copyTpl(
-			this.templatePath('.npmignore'),
+			this.templatePath('DOTnpmignore'),
 			this.destinationPath('.npmignore')
 		)
 
 		// .gitignore
 		this.fs.copyTpl(
-			this.templatePath('.gitignore'),
+			this.templatePath('DOTgitignore'),
 			this.destinationPath('.gitignore')
 		)
 
 		// .babelrc
 		this.fs.copyTpl(
-			this.templatePath('.babelrc'),
+			this.templatePath('DOTbabelrc'),
 			this.destinationPath('.babelrc')
 		)
 
@@ -134,19 +134,19 @@ module.exports = class extends Generator {
 
 		// src/index.js
 		this.fs.copyTpl(
-			this.templatePath('src/index.js'),
+			this.templatePath('src-index.js'),
 			this.destinationPath('src/index.js'),
 			{ packageName }
 		)
 
 		// examples
 		this.fs.copyTpl(
-			this.templatePath('examples/src/index.html'),
+			this.templatePath('examples-src-index.html'),
 			this.destinationPath('examples/src/index.html'),
 			{ packageName }
 		)
 		this.fs.copyTpl(
-			this.templatePath('examples/src/index.js'),
+			this.templatePath('examples-src-index.js'),
 			this.destinationPath('examples/src/index.js'),
 		)
 	});
